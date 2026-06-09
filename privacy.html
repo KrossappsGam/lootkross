@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LootKross — Политика конфиденциальности</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0f14;
+      --surface:   #13161e;
+      --border:    #1e2330;
+      --gold:      #f5c542;
+      --gold-dim:  #a8872b;
+      --text:      #e2e6f0;
+      --muted:     #6b7280;
+      --danger:    #e05c5c;
+      --blue:      #5c8ee0;
+      --blue-dim:  #2a3d60;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      background: rgba(13,15,20,0.92);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--text); }
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero {
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 5vw, 3rem);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+    .hero-meta span::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.6;
+    }
+
+    .layout {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem) 5rem;
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .section:hover { border-color: #2a3045; }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(245,197,66,0.08);
+      border: 1px solid rgba(245,197,66,0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      white-space: nowrap;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: #9ba3b5;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    p + p { margin-top: 0.8rem; }
+
+    ul {
+      list-style: none;
+      margin-top: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    li {
+      color: #9ba3b5;
+      font-size: 0.95rem;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .note {
+      background: rgba(245,197,66,0.05);
+      border-left: 3px solid var(--gold-dim);
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.2rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #b09840;
+    }
+
+    .info {
+      background: rgba(92,142,224,0.06);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.2rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #7a9fd4;
+    }
+
+    /* Таблица данных */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 0.6rem 1rem;
+      background: rgba(245,197,66,0.06);
+      color: var(--gold-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.7rem 1rem;
+      color: #9ba3b5;
+      border-bottom: 1px solid rgba(30,35,48,0.8);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      background: rgba(245,197,66,0.08);
+      color: var(--gold);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.82rem; color: var(--muted); }
+
+    .footer-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    @media (max-width: 600px) {
+      .hero-meta { gap: 1rem; }
+      .section-header { flex-direction: column; gap: 0.5rem; }
+      .data-table { font-size: 0.8rem; }
+      .data-table th, .data-table td { padding: 0.5rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#">Loot<span>Kross</span></a>
+  <span class="badge">PRIVACY v1.0</span>
+</header>
+
+<div class="hero">
+  <p class="hero-eyebrow">Юридический документ</p>
+  <h1>Политика<br><em>конфиденциальности</em></h1>
+  <div class="hero-meta">
+    <span>Вступает в силу: июнь 2026</span>
+    <span>Последнее обновление: июнь 2026</span>
+    <span>Язык: русский</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Введение</h2>
+    </div>
+    <p>Настоящая Политика конфиденциальности описывает, какие данные собирает Discord-бот LootKross, как они используются и хранятся, а также какие права есть у пользователей в отношении своих данных.</p>
+    <p>Используя бота LootKross, вы соглашаетесь с условиями данной политики. Если вы не согласны — пожалуйста, прекратите использование бота.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Какие данные мы собираем</h2>
+    </div>
+    <p>LootKross собирает исключительно те данные, которые необходимы для работы игровых функций:</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Тип данных</th>
+          <th>Описание</th>
+          <th>Цель</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Discord ID</td>
+          <td>Числовой идентификатор аккаунта</td>
+          <td>Идентификация игрока</td>
+        </tr>
+        <tr>
+          <td>Игровой баланс</td>
+          <td>Количество монет и банковских средств</td>
+          <td>Работа экономики</td>
+        </tr>
+        <tr>
+          <td>Инвентарь</td>
+          <td>Предметы, ресурсы, рыба</td>
+          <td>Хранение игрового прогресса</td>
+        </tr>
+        <tr>
+          <td>Достижения</td>
+          <td>Список разблокированных достижений</td>
+          <td>Система наград</td>
+        </tr>
+        <tr>
+          <td>Статистика команд</td>
+          <td>Счётчики использования <code>/mine</code>, <code>/fish</code>, <code>/fight</code></td>
+          <td>Ачивки и антиспам</td>
+        </tr>
+        <tr>
+          <td>Временные метки</td>
+          <td>Время последнего использования команд</td>
+          <td>Система перезарядки (cooldown)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">Мы не собираем имена пользователей, email-адреса, IP-адреса или любые другие личные данные.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Как мы используем данные</h2>
+    </div>
+    <p>Собранные данные используются исключительно для:</p>
+    <ul>
+      <li>Обеспечения работы игровых функций бота</li>
+      <li>Сохранения игрового прогресса между сессиями</li>
+      <li>Формирования таблицы лидеров</li>
+      <li>Работы системы защиты от спама</li>
+      <li>Выдачи достижений по игровой статистике</li>
+    </ul>
+    <div class="info">Данные никогда не используются в рекламных, аналитических или коммерческих целях.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Хранение данных</h2>
+    </div>
+    <p>Все игровые данные хранятся на защищённом сервере в виде локальной базы данных. Данные не передаются на сторонние серверы и не резервируются в облачных сервисах третьих лиц.</p>
+    <p>Данные хранятся до тех пор, пока вы пользуетесь ботом. При удалении бота с сервера данные всех участников этого сервера удаляются автоматически в течение 30 дней.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Передача данных третьим лицам</h2>
+    </div>
+    <p>Мы не продаём, не передаём и не раскрываем ваши данные третьим лицам ни при каких обстоятельствах, за исключением случаев, когда это требуется по закону.</p>
+    <p>LootKross работает на платформе Discord. Используя бота, вы также соглашаетесь с <a href="https://discord.com/privacy" target="_blank" style="color: var(--gold); text-decoration: none;">Политикой конфиденциальности Discord</a>.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Ваши права</h2>
+    </div>
+    <p>Вы имеете право в любой момент:</p>
+    <ul>
+      <li>Запросить просмотр всех хранящихся данных о вас</li>
+      <li>Запросить исправление некорректных данных</li>
+      <li>Запросить полное удаление ваших данных из базы</li>
+    </ul>
+    <div class="info">Для любого из этих запросов напишите администратору в официальный Discord-сервер LootKross. Запрос будет обработан в течение 7 рабочих дней.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Дети и несовершеннолетние</h2>
+    </div>
+    <p>LootKross не предназначен для пользователей младше 13 лет в соответствии с правилами платформы Discord. Ответственность за соблюдение возрастных ограничений Discord лежит на самой платформе и родителях/опекунах пользователей.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Изменение политики</h2>
+    </div>
+    <p>Мы вправе обновлять настоящую политику конфиденциальности. При существенных изменениях мы уведомим пользователей через официальный Discord-сервер LootKross.</p>
+    <p>Актуальная версия политики всегда доступна на этой странице. Дата последнего обновления указана в шапке документа.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-logo">LootKross</span>
+  <p>© 2026 LootKross. Все права защищены.</p>
+  <p>Дата вступления в силу: июнь 2026</p>
+</footer>
+
+</body>
+</html>
